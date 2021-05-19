@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/signInButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btn_account"
+            android:text="계정 정보"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btn_account_logout"
+            android:text="로그아웃"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btn_account_revoke"
+            android:text="계정 탈퇴"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="알림"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="머시기"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="거시기"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

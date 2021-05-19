@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ScrollingActivity"
+    tools:showIn="@layout/activity_scrolling">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textSize="24sp"
+            android:text="강도사" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textSize="24sp"
+            android:text="나이: 20(만 18)세" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textSize="24sp"
+            android:text="사역지: " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textSize="24sp"
+            android:text="연혁: 그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n
+그누구보다빠르게남들과는다르게색다르게리듬을타는나는비트위의나그네\n" />
+    </LinearLayout>
+    <!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="@string/large_text" />
+        -->
+
+</androidx.core.widget.NestedScrollView>
