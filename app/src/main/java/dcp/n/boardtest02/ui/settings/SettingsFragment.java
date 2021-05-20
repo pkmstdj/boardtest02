@@ -51,43 +51,21 @@ public class SettingsFragment extends Fragment {
     private FirebaseAuth mAuth = null;
     private GoogleSignInClient mGoogleSignInClient;
     private SettingsViewModel settingsViewModel;
-    private SignInButton signInButton;
-    private Button btnAccountInfo;
-    private Button btnAcountLogout;
-    private Button btnAccountrevoke;
+    private Button btnAccount;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
-        /*
-        settingsViewModel =
-                new ViewModelProvider(this).get(SettingsViewModel.class);
-
         mAuth = FirebaseAuth.getInstance();
-
-        if(updateUI(mAuth.getCurrentUser())) {
-            //
-        }
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
-        signInButton = root.findViewById(R.id.signInButton);
-        btnAccountInfo = root.findViewById(R.id.btn_account);
-        btnAcountLogout = root.findViewById(R.id.btn_account_logout);
-        btnAccountrevoke = root.findViewById(R.id.btn_account_revoke);
-
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, RC_SIGN_IN);
-            }
-        });
-*/
+        btnAccount = root.findViewById(R.id.btn_account);
+        updateUI();
         return root;
     }
     @Override
@@ -135,28 +113,36 @@ public class SettingsFragment extends Fragment {
                                             Log.w(TAG, "Error writing document", e);
                                         }
                                     });
-                            updateUI(user);
+
+                            updateUI();
+                            ((MainActivity)getActivity()).setMenuUI(mAuth);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            updateUI(null);
                         }
                     }
                 });
     }
-    private boolean updateUI(FirebaseUser user) { //update ui code here
-        if (user != null) {
-            signInButton.setVisibility(View.GONE);
-            btnAccountInfo.setVisibility(View.VISIBLE);
-            btnAcountLogout.setVisibility(View.VISIBLE);
-            btnAccountrevoke.setVisibility(View.VISIBLE);
+    public void updateUI() {
+        if(mAuth.getCurrentUser() != null) {
+            Log.v(TAG, "사용자 정보");
+            btnAccount.setText("사용자 정보");
+            btnAccount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            });
         }
         else {
-            signInButton.setVisibility(View.VISIBLE);
-            btnAccountInfo.setVisibility(View.GONE);
-            btnAcountLogout.setVisibility(View.GONE);
-            btnAccountrevoke.setVisibility(View.GONE);
+            Log.v(TAG, "사용자 인증");
+            btnAccount.setText("사용자 인증");
+            btnAccount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                    startActivityForResult(signInIntent, RC_SIGN_IN);
+                }
+            });
         }
-        return user != null;
     }
 }

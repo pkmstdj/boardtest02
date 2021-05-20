@@ -60,27 +60,27 @@ public class UserFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View root;
         mAuth = FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null) {
+//        if(mAuth.getCurrentUser() != null) {
             root = inflater.inflate(R.layout.fragment_user, container, false);
             FirebaseUser user = mAuth.getCurrentUser();
             setUser(root, user);
-        }
-        else {
-            root = inflater.inflate(R.layout.fragment_login, container, false);
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(getString(R.string.default_web_client_id))
-                    .requestEmail()
-                    .build();
-            mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
-
-            root.findViewById(R.id.signInButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                    startActivityForResult(signInIntent, RC_SIGN_IN);
-                }
-            });
-        }
+//        }
+//        else {
+//            root = inflater.inflate(R.layout.fragment_login, container, false);
+//            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                    .requestIdToken(getString(R.string.default_web_client_id))
+//                    .requestEmail()
+//                    .build();
+//            mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+//
+//            root.findViewById(R.id.signInButton).setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+//                    startActivityForResult(signInIntent, RC_SIGN_IN);
+//                }
+//            });
+//        }
 
         return root;
     }
@@ -91,6 +91,7 @@ public class UserFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         // TODO: Use the ViewModel
     }
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -156,6 +157,8 @@ public class UserFragment extends Fragment {
                     }
                 });
     }
+
+     */
     private void updateUI(FirebaseUser user) { //update ui code here
         if (user != null) {
             LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
