@@ -22,7 +22,7 @@
         android:id="@+id/navigation_user"
         android:name="dcp.n.boardtest02.ui.user.UserFragment"
         android:label="@string/title_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user_old2" />
 
     <fragment
         android:id="@+id/navigation_settings"
